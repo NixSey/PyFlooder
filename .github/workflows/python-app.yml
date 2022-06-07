@@ -1,4 +1,4 @@
-name: TCP Flood
+name: Py Flooder
 
 on:
   workflow_dispatch:
