@@ -66,7 +66,7 @@ def generate_url_path():
 # Perform the request
 def attack():
     print_status()
-    if sys.argv[5].length < 1 || sys.argv[5] == null:
+    if len(sys.argv[5]) < 1 or sys.argv[5] == null:
         url_path = "/" + generate_url_path()
     else:
         url_path = sys.argv[5]
