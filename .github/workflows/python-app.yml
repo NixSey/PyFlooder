@@ -12,11 +12,9 @@ on:
         default: "80"
       noa:
         description: "Number Of Attacks (Blank for Unlimited)"
-        required: true
         default: ""
       path:
         description: "Path Target (Blank for random)"
-        required: true
         default: ""
 
 jobs:
